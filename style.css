@@ -1,0 +1,74 @@
+body {
+	background: transparent !important;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+}
+
+#container {
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 33.33%;
+	outline: black 3px solid !important;
+	padding: 1vh;
+	max-width: none !important;
+}
+
+#container_foot {
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 33.33%;
+	outline: black 3px solid !important;
+	padding: 1vh;
+}
+
+
+.shiftRight {
+	text-align: left;
+	float: right;
+}
+
+.fixFuckersParent {
+	/*padding-bottom: 1vh;*/
+	/*margin-bottom: 1vh;*/
+}
+
+.circleFuckers {
+	width: fit-content;
+	height: fit-content;
+	border-radius: 2vh;
+	background-color: rgba(96, 96, 96, 0.6);
+	color: white;
+	font-size: 3vh;
+	margin-left: 2vw;
+	margin-bottom: 1vh;
+	padding: 0.5vw 2vw;
+	user-select: none;
+	cursor: pointer;
+}
+
+.selectedFucker {
+	align-self: start;
+	left: 0px;
+	text-align: left;
+	float: left;
+	margin-right: 1.0vw;
+	margin-left: -1.0vw;
+	user-select: none;
+	cursor: pointer;
+	font-weight: bold;
+	color: rgba(76, 76, 76, 0.8);
+}
+
+.good {
+	background-color: rgba(0, 255, 0, 0.8);
+}
+
+.bad {
+	background-color: rgba(255, 0, 0, 0.8);
+}
+
