@@ -59,6 +59,13 @@ $(function(){
 		// }
 	]
 
+	let strxList = "";
+	for (let i in atts) {
+		let k = atts[i];
+		strxList += `<div class="circleFuckers">${k}</div>`
+	}
+	$("#fuckersParentList").html(strxList);
+
 	function updatePeople() {
 		let liked = [];
 		let bad = [];
