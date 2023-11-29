@@ -3,7 +3,7 @@ $(function(){
 		"Non-Smoker",
 		"Early Riser",
 		"Clean",
-		"Drinker",
+		"Gamer",
 		"Pet Friendly",
 		"Quiet",
 		"Social",
@@ -15,7 +15,7 @@ $(function(){
 		{
 			"name": "Nick",
 			"age": 19,
-			"atts": ["Introvert", "Quiet", "Drinker", "Has Car"]
+			"atts": ["Introvert", "Quiet", "Gamer", "Has Car"]
 		},
 		{
 			"name": "Trey",
@@ -30,7 +30,7 @@ $(function(){
 		{
 			"name": "Peter",
 			"age": 20,
-			"atts": ["Quiet", "Employed", "Drinker", "Clean"]
+			"atts": ["Quiet", "Employed", "Gamer", "Clean"]
 		},
 		{
 			"name": "Rob",
@@ -40,7 +40,7 @@ $(function(){
 		{
 			"name": "John",
 			"age": 20,
-			"atts": ["Early Riser", "Social", "Clean", "Drinker"]
+			"atts": ["Early Riser", "Social", "Clean", "Gamer"]
 		},
 		// {
 		// 	"name": "Victor",
