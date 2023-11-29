@@ -20,7 +20,7 @@ body {
 #container_foot {
 	top: 0px;
 	left: 0px;
-	width: 100%;
+	width: 100% !important;
 	height: 33.33%;
 	outline: black 3px solid !important;
 	padding: 1vh;
@@ -49,6 +49,24 @@ body {
 	padding: 0.5vw 2vw;
 	user-select: none;
 	cursor: pointer;
+	outline: black 0.107vh solid !important;
+	box-shadow: 0 0.107px 0.214px rgba(0, 0, 0, 0.6);
+}
+
+.circleFuckersClear {
+	width: fit-content;
+	height: fit-content;
+	border-radius: 2vh;
+	background-color: rgba(0, 0, 0, 0.7);
+	color: white;
+	font-size: 3vh;
+	margin-left: 2vw;
+	margin-bottom: 1vh;
+	padding: 0.5vw 2vw;
+	user-select: none;
+	cursor: pointer;
+	outline: black 0.107vh solid !important;
+	box-shadow: 0 0.107px 0.214px rgba(0, 0, 0, 0.6);
 }
 
 .selectedFucker {
@@ -72,7 +90,25 @@ body {
 	background-color: rgba(255, 0, 0, 0.8);
 }
 
-.headoffuckers {
+.attFuckersItem {
+	outline: black 0.107vh solid !important;
+}
+
+.headerDesc {
+
+}
+
+/* fuck off I know I am special */
+.headoffuckers1 {
 	text-align: center;
 	text-underline: black;
+}
+
+.headoffuckers2 {
+	text-align: left;
+	text-underline: black;
+}
+
+.topFuckersButton {
+	float: right;
 }

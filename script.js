@@ -1,11 +1,12 @@
 $(function(){
 	var atts = [
 		"Non-Smoker",
+		"Smoker",
 		"Early Riser",
+		"Night Owl",
 		"Clean",
 		"Gamer",
 		"Pet Friendly",
-		"Quiet",
 		"Social",
 		"Introvert",
 		"Employed",
@@ -15,22 +16,22 @@ $(function(){
 		{
 			"name": "Nick",
 			"age": 19,
-			"atts": ["Introvert", "Quiet", "Gamer", "Has Car"]
+			"atts": ["Introvert", "Night Owl", "Gamer", "Has Car"]
 		},
 		{
 			"name": "Trey",
 			"age": 25,
-			"atts": ["Employed", "Clean", "Has Car", "Social"]
+			"atts": ["Employed", "Smoker", "Has Car", "Social"]
 		},
 		{
 			"name": "David",
 			"age": 18,
-			"atts": ["Non-Smoker", "Clean", "Pet Friendly", "Quiet"]
+			"atts": ["Non-Smoker", "Clean", "Pet Friendly", "Night Owl"]
 		},
 		{
 			"name": "Peter",
 			"age": 20,
-			"atts": ["Quiet", "Employed", "Gamer", "Clean"]
+			"atts": ["Night Owl", "Employed", "Gamer", "Clean"]
 		},
 		{
 			"name": "Rob",
@@ -42,21 +43,6 @@ $(function(){
 			"age": 20,
 			"atts": ["Early Riser", "Social", "Clean", "Gamer"]
 		},
-		// {
-		// 	"name": "Victor",
-		// 	"age": 21,
-		// 	"atts": ["Pet Friendly", "Has Car", "Quiet", "Employed"]
-		// },
-		// {
-		// 	"name": "Sam",
-		// 	"age": 20,
-		// 	"atts": ["Social", "Has Car", "Drinker", "Quiet"]
-		// },
-		// {
-		// 	"name": "Ben",
-		// 	"age": 21,
-		// 	"atts": ["Introvert", "Employed", "Early Riser", "Non-Smoker"]
-		// }
 	]
 
 	let strxList = "";
@@ -107,13 +93,13 @@ $(function(){
 			if (g > r) {
 				//let gg = 1.0 - ( (4 - (g - r)) * 0.1 )
 				let gg = 1.0 - (r*0.3)
-				let gx = 255 - (r*73)
+				let gx = 255 - (r*193)
 				console.log(gg, gx, "|", g, r)
 				elx.css('background', "rgba(0, "+gx+", 0, "+gg+")")
 			}else if (r > g) {
 				//let rr = 1.0 - ( (4 - (r - g)) * 0.1 )
 				let rr = 1.0 - (g*0.3)
-				let rx = 255 - (g*73)
+				let rx = 255 - (g*193)
 				console.log(rr, rx, "|", g, r)
 				elx.css('background', "rgba("+rx+", 0, 0, "+rr+")")
 			}else if (r === 0 && g === 0) {
@@ -125,20 +111,51 @@ $(function(){
 		}
 	}
 
+	let presses = {}
+	$(document).on( "keydown", function (event) {
+		let keycode = (event.keyCode ? event.keyCode : event.which);
+		presses[keycode] = true
+	} ).on( "keypress", function (event) {
+		let keycode = (event.keyCode ? event.keyCode : event.which);
+	} ).on( "keyup", function (event) {
+		let keycode = (event.keyCode ? event.keyCode : event.which);
+		presses[keycode] = false
+	} );
+
+
 	$( ".circleFuckers" ).on( "click", function() {
 		let el = $(this)
 		console.log(el.hasClass("good"), el.hasClass("circleFuckers"))
-		if (el.hasClass("good")) {
-			el.removeClass("good");
-			el.addClass("bad");
-		}else if (el.hasClass("bad")) {
-			el.removeClass("bad");
-			el.find(">:first-child").remove();
+
+		if (presses[16]) {
+			if (el.hasClass("good")) {
+				el.removeClass("good");
+				el.addClass("bad");
+			}else if (el.hasClass("bad")) {
+
+			}else {
+				el.addClass("bad");
+				el.prepend(`<div class="selectedFucker">X</div>`)
+			}
 		}else {
-			el.addClass("good");
-			el.prepend(`<div class="selectedFucker">X</div>`)
+			if (el.hasClass("good")) {
+				el.removeClass("good");
+				el.addClass("bad");
+			}else if (el.hasClass("bad")) {
+				el.removeClass("bad");
+				el.find(">:first-child").remove();
+			}else {
+				el.addClass("good");
+				el.prepend(`<div class="selectedFucker">X</div>`)
+			}
 		}
+
+
 		updatePeople()
+	} );
+
+	$( ".circleFuckersClear" ).on( "click", function() {
+		history.go(0) // Refreshes the page, I know its shit idc it does it job also project-mates forced me to do this
 	} );
 
 	let strx = ""
@@ -148,12 +165,12 @@ $(function(){
 		let attList = ``;
 		for (let _i in k.atts) {
 			let _k = k.atts[_i];
-			attList += `<li class="list-group-item">${_k}</li>`
+			attList += `<li class="list-group-item attFuckersItem">${_k}</li>`
 		}
 
 		strx += `<div class="col-2">
                     <div class="row">
-                        <div class="container mt-4">
+                        <div class="container mt-2">
                             <div class="card">
                                 <div class="card-header">
                                     <h2 style="text-align: center;">${k.name}</h2>
